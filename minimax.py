@@ -45,22 +45,3 @@ def minimax(position, depth, alpha, beta, maximizingPlayer, push_move, find_move
             if beta >= alpha:
                 break
         return minEval
-
-def evalboard(source):
-    values = {"p":1, "n":3, "b":3, "r":5, "q":9, "P":-1, "N":-3, "B":-3, "R":-5, "Q":-9, "k":0, "K":0}
-    board = copy.deepcopy(source)
-    pieces = board.piece_map()
-    pieces = list(pieces.values())
-    peicetotal = 0
-    for piece in pieces:
-        peicetotal -= values[str(piece)]
-    if board.is_checkmate():
-        peicetotal -= 10
-    return peicetotal
-
-def find_moves(position):
-    return list(position.legal_moves)
-        
-board = chess.Board()
-
-find_best_move(board, 3, True, chess.Board.push, find_moves, chess.Board.is_checkmate, evalboard)
