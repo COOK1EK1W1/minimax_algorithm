@@ -1,4 +1,4 @@
-import chess, copy, random
+import copy, random
 def find_best_move(position, lookahead, player, push_move, find_moves, gameover, eval_func):
     print("checking")
     scores = []
